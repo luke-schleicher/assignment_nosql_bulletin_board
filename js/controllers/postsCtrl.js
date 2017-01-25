@@ -15,7 +15,6 @@ function($scope, postService, userService, commentService) {
 
       commentService.getCommentsByIds($scope.post.comment_ids)
         .then(function(comments) {
-          console.log("post comments", comments)
           $scope.comments = comments;
         });
     });

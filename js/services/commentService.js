@@ -9,7 +9,7 @@ function($http, userService, _) {
       angular.copy(response, users);
     });
 
-  var _getAll = function _getAll() {
+  var getAll = function getAll() {
     if(!_.isEmpty(comments)) {
       return new Promise(function(resolve) {
         resolve(comments)
@@ -26,7 +26,7 @@ function($http, userService, _) {
   };
 
   var getCommentsByIds = function getCommentsByIds(ids) {
-    return _getAll().then(function(response) {
+    return getAll().then(function(response) {
 
       var commentArr = [];
       var comment, strId;
@@ -44,6 +44,7 @@ function($http, userService, _) {
 
   return {
     getCommentsByIds: getCommentsByIds,
+    getAll: getAll,
   };
 
 }]);

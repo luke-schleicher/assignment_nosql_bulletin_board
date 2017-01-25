@@ -12,12 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   </head>
-  <body ng-controller="postsCtrl" ng-cloak>
+  <body ng-cloak>
     <div class="container">
         <h1 class="text-center">NoSQL Bulletin Board</h1>
       <div class="row">
         <div class="col-sm-4">
-          <aside class="recent-comments">
+          <aside ng-controller="recentCommsCtrl" class="recent-comments">
             <h3>Recent Comments</h3>
             <div class="comments">
               <h4>
@@ -48,7 +48,7 @@
             </div>
           </aside>
         </div>
-        <div class="col-sm-8">
+        <main ng-controller="postsCtrl" class="col-sm-8">
           <h3>Posts</h3>
           <h4>{{ post.title }}</h4>
           <p>Posted on {{ post.created_at | date }} by {{ author.name }}</p>
@@ -81,8 +81,8 @@
             <p>{{ comment.body }}</p>
           </div>
         </div>
-        
-      </div>
+
+      </main>
     </div>
 
 
@@ -92,6 +92,7 @@
     <script src="js/services/postService.js"></script>
     <script src="js/services/commentService.js"></script>
     <script src="js/controllers/postsCtrl.js"></script>
+    <script src="js/controllers/recentCommsCtrl.js"></script>
 
   </body>
 </html>
