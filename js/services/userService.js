@@ -6,7 +6,7 @@ BulletinBoard.factory('userService', ['$http', function($http) {
 
     if (users) {
 
-      return new Promise(function(resolve) { 
+      return new Promise(function(resolve) {
         resolve(users)
       });
 
@@ -24,6 +24,8 @@ BulletinBoard.factory('userService', ['$http', function($http) {
   };
 
   var getUserById = function(id) {
+    if(typeof id !== "string") id = String(id);
+    
     return _getUsers().then(function(users) {
       return users[id];
     });

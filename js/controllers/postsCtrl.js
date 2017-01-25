@@ -18,7 +18,4 @@ function($scope, postService, userService, commentService) {
           $scope.comments = comments;
         });
     });
-
-
-
 }]);

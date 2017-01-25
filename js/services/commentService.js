@@ -1,4 +1,5 @@
-BulletinBoard.factory("commentService", ['$http', function($http) {
+BulletinBoard.factory("commentService", "userService", ['$http',
+function($http, userService) {
   var comments;
 
   var _getAll = function _getAll() {
@@ -20,8 +21,17 @@ BulletinBoard.factory("commentService", ['$http', function($http) {
     return _getAll().then(function(response) {
 
       var commentArr = [];
+      var comment, strId;
       for(var i = 0; i < ids.length; i++) {
-        commentArr.push(comments[ String(ids[i]) ]);
+        strId = String(ids[i]);
+
+        userService.getUserById(comments[strId].author_id).then(
+          function(author) {
+            comments[strId].author = author;
+          }
+        );
+        
+        commentArr.push(commments[strId]);
       }
 
       return commentArr;
