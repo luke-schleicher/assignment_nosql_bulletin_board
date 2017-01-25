@@ -1,5 +1,5 @@
 BulletinBoard.factory("postService", ['$http', function($http) {
-  var posts;
+  var posts = {};
 
   var _getAll = function _getAll() {
     if(posts) {
@@ -11,7 +11,7 @@ BulletinBoard.factory("postService", ['$http', function($http) {
         method: 'GET',
         url: '/data/posts.json'
       }).then( function(response) {
-        return posts = response.data; // Why do we do this??
+        return angular.copy(response.data, posts); // Why do we do this??
       });
     }
   }
