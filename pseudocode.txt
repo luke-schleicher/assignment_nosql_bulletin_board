@@ -19,6 +19,10 @@ COMMENTS
   - created_at (date)
   - score (integer)
 
+USER
+
+name
+
 
 OLD PSEUDOCODE
 ===============================
@@ -44,4 +48,3 @@ SCORE INDEX
   Get all the keys, get maximum score, read comment ids until have enough top scores
 
 [-1, 2, 4, 7] // scores
-

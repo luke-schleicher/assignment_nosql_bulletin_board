@@ -1,0 +1,42 @@
+{
+  "0": {
+    "id": 0,
+    "body": "Wow, so cool.",
+    "author": 0,
+    "post": 0,
+    "created_at": "2017-01-25T00:59:06.349Z",
+    "score": 0
+  },
+  "1": {
+    "id": 1,
+    "body": "very interesting.",
+    "author": 1,
+    "post": 0,
+    "created_at": "2017-01-25T00:59:06.349Z",
+    "score": 0
+  },
+  "2": {
+    "id": 2,
+    "body": "Not like.",
+    "author": 2,
+    "post": 0,
+    "created_at": "2017-01-25T00:59:46.344Z",
+    "score": 0
+  },
+  "3": {
+    "id": 3,
+    "body": "Likey.",
+    "author": 3,
+    "post": 0,
+    "created_at": "2017-01-25T00:58:05.972Z",
+    "score": 0
+  },
+  "4": {
+    "id": 4,
+    "body": "Unicorns rule.",
+    "author": 4,
+    "post": 0,
+    "created_at": "2017-01-25T00:58:42.078Z",
+    "score": 0
+  },
+}
