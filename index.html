@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BulletinBoard">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoSQL Bulletin Board</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/stylesheet.css">
 
@@ -12,7 +12,98 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-controller="postsCtrl">
+    <div class="container">
+        <h1 class="text-center">NoSQL Bulletin Board</h1>
+      <div class="row">
+        <div class="col-sm-4">
+          <aside class="recent-comments">
+            <h3>Recent Comments</h3>
+            <div class="comments">
+              <h4>
+                <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                3 | Robin
+              </h4>
+              <p>Commented on ....</p>
+              <p>"I like eggs."</p>
+            </div>
+            <div class="comments">
+              <h4>
+                <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                3 | Robin
+              </h4>
+              <p>Commented on ....</p>
+              <p>"I like eggs."</p>
+            </div>
+            <div class="comments">
+              <h4>
+                <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+                3 | Robin
+              </h4>
+              <p>Commented on ....</p>
+              <p>"I like eggs."</p>
+            </div>
+          </aside>
+        </div>
+        <div class="col-sm-8">
+          <h3>Posts</h3>
+          <h4>My Bat is a Placeholder</h4>
+          <p>Posted on ...</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          <form class="form">
+            <h5>Create a Comment</h5>
+
+            <div class="form-group">
+              <label>Author
+               <input class="form-control" type="text" name="">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Comment
+               <textarea class="form-control" name=""></textarea>
+              </label>
+            </div>
+
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+          </form>
+
+          <div class="comments">
+            <h4>
+              <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+              <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+              3 | Robin
+            </h4>
+            <p>Commented on ....</p>
+            <p>"I like eggs."</p>
+          </div>
+          <div class="comments">
+            <h4>
+              <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+              <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+              3 | Robin
+            </h4>
+            <p>Commented on ....</p>
+            <p>"I like eggs."</p>
+          </div>
+          <div class="comments">
+            <h4>
+              <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+              <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+              3 | Robin
+            </h4>
+            <p>Commented on ....</p>
+            <p>"I like eggs."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
 
 
