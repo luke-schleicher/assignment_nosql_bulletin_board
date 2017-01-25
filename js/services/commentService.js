@@ -1,7 +1,7 @@
 BulletinBoard.factory("commentService", ['$http', "userService", "_",
 function($http, userService, _) {
 
-  var comments = {};
+  var _comments = {};
   var users = {};
 
   userService.getUsers()
@@ -9,42 +9,43 @@ function($http, userService, _) {
       angular.copy(response, users);
     });
 
-  var getAll = function getAll() {
-    if(!_.isEmpty(comments)) {
-      return new Promise(function(resolve) {
-        resolve(comments)
-      });
-    } else {
-      return $http({
-        method: 'GET',
-        url: '/data/comments.json'
-      }).then( function(response) {
+  // split getAll into 2 functions
+  // 1 fetches the data from api
+  // 1 returns comments object
 
-        return angular.copy(response.data, comments);
-      });
-    }
+  var getAll = function getAll() {
+    return $http({
+      method: 'GET',
+      url: '/data/comments.json'
+    }).then( function(response) {
+      angular.copy(response.data, _comments);
+    });
+  };
+
+  getAll();
+
+  var getComments = function() {
+    return _comments;
   };
 
   var getCommentsByIds = function getCommentsByIds(ids) {
-    return getAll().then(function(response) {
+    
+    var commentArr = [];
+    var strId;
 
-      var commentArr = [];
-      var comment, strId;
+    for (var i = 0; i < ids.length; i++) {
+      strId = String(ids[i]);
+      _comments[strId].author = users[ String(_comments[strId].author_id) ];
+      commentArr.push(_comments[strId]);
+    }
+    return commentArr;
 
-      for(var i = 0; i < ids.length; i++) {
-        strId = String(ids[i]);
-        comments[strId].author = users[ String(comments[strId].author_id) ];
-
-        commentArr.push(comments[strId]);
-      }
-
-      return commentArr;
-    });
   };
 
   return {
     getCommentsByIds: getCommentsByIds,
     getAll: getAll,
+    getComments: getComments
   };
 
 }]);
