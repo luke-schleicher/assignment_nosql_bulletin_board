@@ -1,0 +1,10 @@
+
+<div class="comments">
+  <h4>
+    <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+    <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
+    {{ comment.score }} | {{ comment.author.name }}
+  </h4>
+  <p>Commented on {{ comment.created_at | date }}</p>
+  <p>{{ comment.body }}</p>
+</div>

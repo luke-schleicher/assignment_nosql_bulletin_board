@@ -1,7 +1,7 @@
 BulletinBoard.factory("commentService", ['$http', "userService", "_",
 function($http, userService, _) {
 
-  var _comments = {};
+  var _comments = [];
   var users = {};
 
   userService.getUsers()
@@ -18,7 +18,11 @@ function($http, userService, _) {
       method: 'GET',
       url: '/data/comments.json'
     }).then( function(response) {
-      angular.copy(response.data, _comments);
+      angular.copy([], _comments);
+
+      for(var id in response.data) {
+        _comments.push(response.data[id]);
+      }
     });
   };
 
@@ -29,23 +33,27 @@ function($http, userService, _) {
   };
 
   var getCommentsByIds = function getCommentsByIds(ids) {
-    
+
     var commentArr = [];
     var strId;
 
     for (var i = 0; i < ids.length; i++) {
-      strId = String(ids[i]);
-      _comments[strId].author = users[ String(_comments[strId].author_id) ];
-      commentArr.push(_comments[strId]);
+      for(var j = 0; j < _comments.length; j++) {
+        if (_comments[j].id === ids[i]) {
+          _comments[j].author = users[ String(_comments[j].author_id) ];
+          commentArr.push(_comments[j]);
+          break;
+        }
+      }
     }
-    return commentArr;
 
+    return commentArr;
   };
 
   return {
     getCommentsByIds: getCommentsByIds,
     getAll: getAll,
-    getComments: getComments
+    getComments: getComments,
   };
 
 }]);

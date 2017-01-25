@@ -4,7 +4,7 @@
     "body": "Wow, so cool.",
     "author_id": 0,
     "post_id": 0,
-    "created_at": "2017-01-25T00:59:06.349Z",
+    "created_at": "2017-01-23T00:59:06.349Z",
     "score": 6
   },
   "1": {
@@ -20,7 +20,7 @@
     "body": "Not like.",
     "author_id": 2,
     "post_id": 0,
-    "created_at": "2017-01-25T00:59:46.344Z",
+    "created_at": "2017-01-14T00:59:46.344Z",
     "score": 0
   },
   "3": {
@@ -28,7 +28,7 @@
     "body": "Likey.",
     "author_id": 3,
     "post_id": 0,
-    "created_at": "2017-01-25T00:58:05.972Z",
+    "created_at": "2017-01-16T00:58:05.972Z",
     "score": 4
   },
   "4": {
@@ -36,7 +36,7 @@
     "body": "Unicorns rule.",
     "author_id": 4,
     "post_id": 0,
-    "created_at": "2017-01-25T00:58:42.078Z",
+    "created_at": "2017-01-01T00:58:42.078Z",
     "score": 11
   }
 }
