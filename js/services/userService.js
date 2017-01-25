@@ -1,11 +1,11 @@
-BulletinBoard.factory('userService', ['$http', function($http) {
+BulletinBoard.factory('userService', ['$http','_', function($http,_) {
 
   var users = {};
 
   var getUsers = function() {
 
-    if (users) {
-      
+    if (!_.isEmpty(users)) {
+
       return new Promise(function(resolve) {
         resolve(users)
       });
@@ -16,7 +16,7 @@ BulletinBoard.factory('userService', ['$http', function($http) {
         method: 'GET',
         url: '/data/users.json'
       }).then(function(response) {
-        return angular.copy(response.data, users};
+        return angular.copy(response.data, users);
       });
 
     }
@@ -25,7 +25,7 @@ BulletinBoard.factory('userService', ['$http', function($http) {
 
   var getUserById = function(id) {
     if(typeof id !== "string") id = String(id);
-    
+
     return getUsers().then(function(users) {
       return users[id];
     });

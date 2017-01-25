@@ -25,7 +25,6 @@ function($http, userService, _) {
     }
   };
 
-
   var getCommentsByIds = function getCommentsByIds(ids) {
     return _getAll().then(function(response) {
 
@@ -34,13 +33,8 @@ function($http, userService, _) {
 
       for(var i = 0; i < ids.length; i++) {
         strId = String(ids[i]);
+        comments[strId].author = users[ String(comments[strId].author_id) ];
 
-        userService.getUserById(comments[strId].author_id).then(
-          function(author) {
-            comments[strId].author = author;
-          }
-        );
-        
         commentArr.push(comments[strId]);
       }
 

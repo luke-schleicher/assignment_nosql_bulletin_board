@@ -71,39 +71,19 @@
             <input class="btn btn-primary" type="submit" name="submit" value="Submit">
           </form>
 
-          <div class="comments">
+          <div class="comments" ng-repeat="comment in comments | orderBy:'-score'">
             <h4>
               <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
               <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
-              3 | Robin
+              {{ comment.score }} | {{ comment.author.name }}
             </h4>
-            <p>Commented on ....</p>
-            <p>"I like eggs."</p>
-          </div>
-          <div class="comments">
-            <h4>
-              <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
-              <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
-              3 | Robin
-            </h4>
-            <p>Commented on ....</p>
-            <p>"I like eggs."</p>
-          </div>
-          <div class="comments">
-            <h4>
-              <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
-              <a href="#"><span class="glyphicon glyphicon-arrow-down"></span></a>
-              3 | Robin
-            </h4>
-            <p>Commented on ....</p>
-            <p>"I like eggs."</p>
+            <p>Commented on {{ comment.created_at | date }}</p>
+            <p>{{ comment.body }}</p>
           </div>
         </div>
+        
       </div>
     </div>
-
-
-
 
 
 

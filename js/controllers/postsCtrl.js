@@ -3,7 +3,7 @@ function($scope, postService, userService, commentService) {
 
   postService.getPostForId('0')
     .then(function(post) {
-
+      console.log(post);
       $scope.post = post;
 
       var author_id = String(post.author_id);
@@ -15,6 +15,7 @@ function($scope, postService, userService, commentService) {
 
       commentService.getCommentsByIds($scope.post.comment_ids)
         .then(function(comments) {
+          console.log("post comments", comments)
           $scope.comments = comments;
         });
     });

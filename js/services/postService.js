@@ -1,8 +1,8 @@
-BulletinBoard.factory("postService", ['$http', function($http) {
+BulletinBoard.factory("postService", ['$http', '_', function($http, _) {
   var posts = {};
 
   var _getAll = function _getAll() {
-    if(posts) {
+    if(!_.isEmpty(posts)) {
       return new Promise(function(resolve) {
         resolve(posts)
       });
