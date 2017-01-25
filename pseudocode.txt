@@ -1,0 +1,47 @@
+We'll need to get...
+  - comments by post
+  - recent comments
+  - scores for comments
+    - order by score
+
+POSTS
+  - title (string)
+  - body (string)
+  - author (integer)
+  - created_at (date)
+  - comments (array of ids)
+
+
+COMMENTS
+  - body (string)
+  - post (integer)
+  - author (integer)
+  - created_at (date)
+  - score (integer)
+
+
+OLD PSEUDOCODE
+===============================
+
+RECENT COMMENTS
+  - like an index table, with a key of recent comments
+  - and a value of an array of comment ids that are the most recent
+
+{
+  recent_comments: [3, 7, 1]
+}
+
+SCORE INDEX
+
+  {
+    7: [2, 3, 7],
+    4: [1],
+    2: [4, 6],
+    -1: [5]
+  }
+
+  How to get the top scores?
+  Get all the keys, get maximum score, read comment ids until have enough top scores
+
+[-1, 2, 4, 7] // scores
+
