@@ -1,5 +1,5 @@
-BulletinBoard.controller("postsCtrl", ['$scope', 'postService', 'userService',
-function($scope, postService, userService) {
+BulletinBoard.controller("postsCtrl", ['$scope', 'postService', 'userService','commentService',
+function($scope, postService, userService, commentService) {
 
   postService.getPostForId('0')
     .then(function(post) {
@@ -12,7 +12,13 @@ function($scope, postService, userService) {
         .then(function(author) {
           $scope.author = author;
         });
-        
+
+      commentService.getCommentsByIds($scope.post.comment_ids)
+        .then(function(comments) {
+          $scope.comments = comments;
+        });
     });
+
+
 
 }]);

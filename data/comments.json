@@ -5,7 +5,7 @@
     "author_id": 0,
     "post_id": 0,
     "created_at": "2017-01-25T00:59:06.349Z",
-    "score": 0
+    "score": 6
   },
   "1": {
     "id": 1,
@@ -13,7 +13,7 @@
     "author_id": 1,
     "post_id": 0,
     "created_at": "2017-01-25T00:59:06.349Z",
-    "score": 0
+    "score": -1
   },
   "2": {
     "id": 2,
@@ -29,7 +29,7 @@
     "author_id": 3,
     "post_id": 0,
     "created_at": "2017-01-25T00:58:05.972Z",
-    "score": 0
+    "score": 4
   },
   "4": {
     "id": 4,
@@ -37,6 +37,6 @@
     "author_id": 4,
     "post_id": 0,
     "created_at": "2017-01-25T00:58:42.078Z",
-    "score": 0
-  },
+    "score": 11
+  }
 }
