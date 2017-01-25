@@ -17,12 +17,13 @@ BulletinBoard.factory("postService", ['$http', function($http) {
   }
 
   var getPostForId = function getPostForId(id) {
-    _getAll().then(function() {
-
-    })
+    return _getAll().then(function(posts) {
+      return posts[id];
+    });
   }
 
   return {
     getPostForId: getPostForId,
   }
+
 }]);
