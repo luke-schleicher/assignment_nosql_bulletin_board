@@ -16,4 +16,11 @@ function($scope, postService, userService, commentService) {
       $scope.comments = commentService.getCommentsByIds($scope.post.comment_ids);
 
     });
+
+
+  var createComment = function() {
+    commentService.createComment($scope.newComment);
+    $scope.newComment = {};
+  };
+
 }]);

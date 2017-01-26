@@ -3,6 +3,7 @@ function($http, userService, _) {
 
   var _comments = [];
   var users = {};
+  var _id;
 
   userService.getUsers()
     .then(function(response) {
@@ -50,10 +51,54 @@ function($http, userService, _) {
     return commentArr;
   };
 
+  var _setId = function() {
+    var maxId = 0;
+    _comments.forEach(function(element, index) {
+      if (element.id > maxId) {
+        maxId = element.id;
+      }
+    });
+    return _id = maxId;
+  }
+
+  var _getNextId = function() {
+    if (_id) {
+      return _id + 1;
+    } else {
+      return _setId() + 1;
+    }
+  }
+
+  var _findOrInitializeAuthor = function(name) {
+    for (var user in users) {
+      if (user.name === name) {
+        return user;
+      }
+    }
+    var user = userService.createUser(name);
+    users.push(user);
+    return user;
+  };
+
+  var createComment = function(comment) {
+    var newComment = {};
+    newComment.body = comment.body;
+    newComment.score = 0;
+    newComment.id = _getNextId();
+    newComment.post_id = 0;
+    newComment.author = _findOrInitializeAuthor(comment.authorName);
+    newComment.author_id = newComment.author.id;
+    newComment.created_at = Date.now();
+    _comments.push(newComment);
+    _id++;
+    return newComment;
+  };
+
   return {
     getCommentsByIds: getCommentsByIds,
     getAll: getAll,
     getComments: getComments,
+    createComment: createComment
   };
 
 }]);
